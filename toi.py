@@ -16,6 +16,14 @@ print(cat)
 br=requests.get(url,headers=hdr)
 soup=BeautifulSoup(br.text,"html.parser")
 
+url1="https://timesofindia.indiatimes.com/city/kolkata"
+br=requests.get(url1,headers=hdr)
+soup=BeautifulSoup(br.text,"html.parser")
+s=soup.find_all('div',{"class":"_2ZXWE"})
+
+aws=s[0].find_all('a')
+for i in aws:
+    print(i.text)
 
 
 
